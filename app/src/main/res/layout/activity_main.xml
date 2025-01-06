@@ -36,4 +36,14 @@
         android:hint="Login"
         />
 
+    <TextView
+        android:layout_margin="10dp"
+        android:text=""
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:id="@+id/txt_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

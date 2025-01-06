@@ -11,11 +11,22 @@ class LoginViewModel : ViewModel() {
     private val repository = LoginRepository()
 
     private val _loginResult = MutableLiveData<LoginResult>()
+     val _mNotification = MutableLiveData<String>()
 
-     val loginResult : LiveData<LoginResult> = _loginResult
+    fun mNotify():LiveData<String>{
+        return _mNotification
+    }
+    fun loginResult():LiveData<LoginResult>{
+        return _loginResult
+    }
 
     fun login(username:String, pass:String){
         val result = repository.login(user = username, pass = pass)
+       if(result.success){
+           _mNotification.postValue("Acesso Autorizado")
+       }else{
+           _mNotification.postValue("Acesso negado")
+       }
         _loginResult.postValue(result)
     }
 
